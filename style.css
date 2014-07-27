@@ -5574,7 +5574,6 @@ label {
     width: 100%;
     min-height: 500px;
     margin: 15px 2% 0 0;
-    float: left;
     font-size: 10pt;
     line-height: 14pt;
     font-weight: 200;
@@ -5590,8 +5589,12 @@ label {
     -webkit-appearance: none;
 }
 .panel {
-    margin: 0 0 0 0;
+    margin-top: 19px;
 }
 .sidePanel {
     position: fixed;
+}
+.NoteItem {
+    display: block;
+    margin-top: 20px;
 }

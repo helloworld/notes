@@ -2,6 +2,7 @@
   "packages": {
     "iron-router": {},
     "ace-embed": {},
-    "highlight": {}
+    "highlight": {},
+    "bootstrap-3": {}
   }
 }

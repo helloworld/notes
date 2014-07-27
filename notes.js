@@ -133,6 +133,18 @@ if (Meteor.isClient) {
         });
     };
 
+    Template.TeacherNotes.rendered = function() {
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/pastel_on_dark");
+        editor.getSession().setMode("ace/mode/");
+        editor.setHighlightActiveLine(true);
+        editor.getSession().setUseWorker(true);
+        editor.getSession().setUseWrapMode(true);
+        editor.setValue("Type Notes Here");
+    };
+
+
+
     Template.teacher.helpers({
         items: function() {
             return Notes.find({}, {

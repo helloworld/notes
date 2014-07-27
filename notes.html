@@ -190,40 +190,72 @@
             </div>
         </div>
         <div class="col-md-9">
-            {{#each items}} {{> NoteItem}} {{else}} No Notes! {{/each}}
+            {{> TeacherNotes}} {{#each items}} {{> NoteItem}} {{else}} No Notes! {{/each}}
         </div>
     </div>
 </template>
 
 <template name="NoteItem">
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h3 class="panel-title">{{user.username}}</h3>
-        </div>
-        <div class="panel-body">
-            <strong>Subject:</strong>
-            <span class="label label-primary">{{subject}}</span>
+    <div class="NoteItem">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{user.username}}</h3>
+            </div>
+            <div class="panel-body">
+                <strong>Subject:</strong>
+                <span class="label label-primary">{{subject}}</span>
 
-            <strong>Topic:</strong>
-            <span class="label label-success">{{topic}}</span>
+                <strong>Topic:</strong>
+                <span class="label label-success">{{topic}}</span>
 
-            <strong>Title:</strong>
-            <span class="label label-warning">{{title}}</span>
+                <strong>Title:</strong>
+                <span class="label label-warning">{{title}}</span>
 
-            <!-- <strong>Count:</strong>
+                <!-- <strong>Count:</strong>
             <span class="label label-warning">{{count}}</span> -->
 
-            <br>
-            <br>
+                <br>
+                <br>
 
-            <pre>{{text}}</pre>
+                <pre>{{text}}</pre>
 
+            </div>
         </div>
     </div>
-    <br>
 </template>
 
 <template name="NoteList">
     <span class="label label-success" id="topicSelector">{{this}}</span>
     <br>
+</template>
+
+<template name="TeacherNotes">
+    <div class="panel panel-danger" id="accordion">
+        <div class="panel-heading">
+            <h3 class="panel-title">Teacher Notes</h3>
+        </div>
+        <div class="panel-body">
+            <div class="well">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="panel panel-warning">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Settings</h3>
+                            </div>
+                            <div class="panel-body">
+                                <p>Click here to run analysis on student notes:</p>
+                                <button type="button" class="btn btn-warning save">RUN TEST</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div id='editor' class="aceEditor">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </template>

@@ -4,7 +4,8 @@
     "basePackages": {
       "iron-router": {},
       "ace-embed": {},
-      "highlight": {}
+      "highlight": {},
+      "bootstrap-3": {}
     },
     "packages": {
       "iron-router": {
@@ -21,6 +22,11 @@
         "git": "https://github.com/apendua/meteor-highlight.git",
         "tag": "v0.0.1",
         "commit": "6001457c2982a97cf850c4bbb374ac2840a6ce82"
+      },
+      "bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
+        "tag": "v3.2.0-1",
+        "commit": "17a63902fc6cf1096c5289d963c66cf28b474727"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
