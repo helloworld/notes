@@ -230,31 +230,37 @@
 </template>
 
 <template name="TeacherNotes">
-    <div class="panel panel-danger" id="accordion">
-        <div class="panel-heading">
-            <h3 class="panel-title">Teacher Notes</h3>
-        </div>
-        <div class="panel-body">
-            <div class="well">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="panel panel-warning">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Settings</h3>
+    <div class="accordion" id="teacherCollapse">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="teacherCollapse" href="#collapseEditor">
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Teacher Notes</h3>
+                </div>
+                <div id="collapseEditor" class="accordion-body collapse">
+                    <div class="panel-body">
+                        <div class="well">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="panel panel-warning">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Settings</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>Click here to run analysis on student notes:</p>
+                                            <button type="button" class="btn btn-warning runTest">RUN TEST</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div id='editorTeacher' class="aceEditor">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="panel-body">
-                                <p>Click here to run analysis on student notes:</p>
-                                <button type="button" class="btn btn-warning runTest">RUN TEST</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9">
-                        <div id='editorTeacher' class="aceEditor">
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
 
 
