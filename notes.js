@@ -1,9 +1,12 @@
 Notes = new Meteor.Collection('notes');
+Results = new Meteor.Collection('results');
 
 
 if (Meteor.isClient) {
 
     notesSub = Meteor.subscribe('notes');
+    resultsSub = Meteor.subscribe('results');
+
 
 
     Template.signup.events = {
@@ -121,7 +124,7 @@ if (Meteor.isClient) {
                 title: title,
                 subject: subject,
                 topic: topic,
-                text: text,
+                noteText: text,
                 countConfused: countConfused,
                 countMorePractice: countMorePractice,
                 countLost: countLost,
@@ -134,14 +137,61 @@ if (Meteor.isClient) {
     };
 
     Template.TeacherNotes.rendered = function() {
-        var editor = ace.edit("editor");
-        editor.setTheme("ace/theme/pastel_on_dark");
-        editor.getSession().setMode("ace/mode/");
-        editor.setHighlightActiveLine(true);
-        editor.getSession().setUseWorker(true);
-        editor.getSession().setUseWrapMode(true);
-        editor.setValue("Type Notes Here");
-    };
+        var editorTeacher = ace.edit("editorTeacher");
+        editorTeacher.setTheme("ace/theme/pastel_on_dark");
+        editorTeacher.getSession().setMode("ace/mode/");
+        editorTeacher.setHighlightActiveLine(true);
+        editorTeacher.getSession().setUseWorker(true);
+        editorTeacher.getSession().setUseWrapMode(true);
+        editorTeacher.setValue("Type Notes Here");
+
+
+        $(".runTest").click(function() {
+            var text = editorTeacher.getValue();
+            // text = text.replace(/\s/g, "\n");
+            var array = text.split("\n");
+            for (i = 0; i < array.length; i++) {
+                array[i] = array[i].trim();
+
+            }
+
+
+            arr = array.filter(function(n) {
+                return n != "";
+            });
+
+
+            notesArray = Notes.find().fetch();
+
+            console.log(notesArray[0].noteText);
+
+            for (i = 0; i < notesArray.length; i++) {
+                var correct = 0;
+                for (j = 0; j < arr.length; j++) {
+                    if ((notesArray[i].noteText.toLowerCase()).indexOf(arr[j].toLowerCase()) > -1) {
+                        correct++;
+                    }
+                }
+                console.log("-------------------------------------")
+                console.log("USERNAME: " + notesArray[i].user.username)
+                console.log("CORRECT: " + correct)
+                var score = correct / arr.length;
+                score = score * 100;
+                console.log("score" + score);
+
+                Results.remove({})
+
+                Results.insert({
+                    created_at: new Date,
+                    user: notesArray[i].user.username,
+                    correct: correct,
+                    score: score,
+                });
+            }
+
+        });
+
+    }
 
 
 
@@ -207,6 +257,19 @@ if (Meteor.isClient) {
 
     });
 
+    Template.results.helpers({
+        items: function() {
+            return Results.find({}, {
+                sort: {
+                    created_at: -1
+                }
+            });
+        },
+    });
+
+
+
+
 
 
 }
@@ -215,6 +278,14 @@ if (Meteor.isServer) {
 
     Meteor.publish('notes', function() {
         return Notes.find({}, {
+            sort: {
+                created_at: 1
+            }
+        });
+    });
+
+    Meteor.publish('results', function() {
+        return Results.find({}, {
             sort: {
                 created_at: 1
             }

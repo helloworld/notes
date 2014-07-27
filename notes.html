@@ -217,7 +217,7 @@
                 <br>
                 <br>
 
-                <pre>{{text}}</pre>
+                <pre>{{noteText}}</pre>
 
             </div>
         </div>
@@ -244,12 +244,12 @@
                             </div>
                             <div class="panel-body">
                                 <p>Click here to run analysis on student notes:</p>
-                                <button type="button" class="btn btn-warning save">RUN TEST</button>
+                                <button type="button" class="btn btn-warning runTest">RUN TEST</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-9">
-                        <div id='editor' class="aceEditor">
+                        <div id='editorTeacher' class="aceEditor">
                         </div>
                     </div>
                 </div>
@@ -258,4 +258,29 @@
     </div>
 
 
+</template>
+
+<template name="results">
+    <div class="row">
+        <div class="col-md-3">
+            {{#each items}} {{> resultsList}} {{else}} No Notes! {{/each}}
+        </div>
+    </div>
+
+</template>
+
+<template name="resultsList">
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{user}}</h3>
+        </div>
+        <div class="panel-body">
+            <ul class="nav nav-pills">
+                <li class="active"><a href="#">Correct: <span class="badge">{{correct}}</span></a>
+                </li>
+                <li class="active"><a href="#">Score: <span class="badge">{{score}}%</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </template>
