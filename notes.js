@@ -8,6 +8,11 @@ if (Meteor.isClient) {
     resultsSub = Meteor.subscribe('results');
 
 
+    Template.resetview.events({
+        'click button': function(e, tmpl) {
+            Meteor.call('resetAll');
+        }
+    });
 
     Template.signup.events = {
         'click input[type=submit]': function(event) {
@@ -275,6 +280,22 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
+
+    Meteor.startup(function() {
+
+        return Meteor.methods({
+
+            resetAll: function() {
+
+                Notes.remove({});
+                Results.remove({});
+                return;
+
+            }
+
+        });
+
+    });
 
     Meteor.publish('notes', function() {
         return Notes.find({}, {

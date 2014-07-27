@@ -46,6 +46,7 @@ Router.map(function() {
     this.route('mynotes');
     this.route('teacher');
     this.route('results');
+    this.route('resetview');
 
 
 
