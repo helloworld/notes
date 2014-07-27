@@ -1,6 +1,7 @@
 {
   "packages": {
     "iron-router": {},
-    "ace-embed": {}
+    "ace-embed": {},
+    "highlight": {}
   }
 }

@@ -172,6 +172,16 @@ if (Meteor.isClient) {
             return sum;
         },
 
+        uniqueTopics: function() {
+            var array = [];
+            Notes.find({}).forEach(function(object) {
+                if (array.indexOf(object.topic) < 0) {
+                    array.push(object.topic);
+                }
+            });
+            return array;
+        },
+
 
     });
 

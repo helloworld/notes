@@ -149,19 +149,20 @@
     <div class="row">
         <div class="col-md-3">
             <div class="sidePanel">
-                <div class="panel panel-success">
+                <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Selection Tools:</h3>
                     </div>
                     <div class="panel-body">
-                        {{hashtag}} {{#each items}} {{> NoteList}} {{else}} No Notes! {{/each}}
+                        {{#each uniqueTopics}} {{> NoteList}} {{else}} No Notes! {{/each}}
                         <br>
                         <br>
-                        <button type="button" class="btn btn-default save">Search</button>
+                        <!--                         <button type="button" class="btn btn-default save">Search</button>
+ -->
                     </div>
                 </div>
                 <br>
-                <div class="panel panel-success">
+                <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Hashtags:</h3>
                     </div>
@@ -209,21 +210,20 @@
             <strong>Title:</strong>
             <span class="label label-warning">{{title}}</span>
 
-            <strong>Count:</strong>
-            <span class="label label-warning">{{count}}</span>
+            <!-- <strong>Count:</strong>
+            <span class="label label-warning">{{count}}</span> -->
 
             <br>
             <br>
 
-            <pre>
-            	{{text}}
-            </pre>
+            <pre>{{text}}</pre>
 
         </div>
     </div>
+    <br>
 </template>
 
 <template name="NoteList">
-    <span class="label label-default">{{title}}</span>
+    <span class="label label-success" id="topicSelector">{{this}}</span>
     <br>
 </template>

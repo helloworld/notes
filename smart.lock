@@ -3,7 +3,8 @@
   "dependencies": {
     "basePackages": {
       "iron-router": {},
-      "ace-embed": {}
+      "ace-embed": {},
+      "highlight": {}
     },
     "packages": {
       "iron-router": {
@@ -15,6 +16,11 @@
         "git": "https://github.com/stuartfenton/meteor-ace-embed.git",
         "tag": "v0.0.4",
         "commit": "027b0e1b0d06111b51a713f04a8b8750fdcbd289"
+      },
+      "highlight": {
+        "git": "https://github.com/apendua/meteor-highlight.git",
+        "tag": "v0.0.1",
+        "commit": "6001457c2982a97cf850c4bbb374ac2840a6ce82"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
