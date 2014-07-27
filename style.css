@@ -5590,5 +5590,8 @@ label {
     -webkit-appearance: none;
 }
 .panel {
-    margin: 15px 2% 0 0;
+    margin: 0 0 0 0;
+}
+.sidePanel {
+    position: fixed;
 }

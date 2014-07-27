@@ -144,3 +144,86 @@
         </div>
     </div>
 </template>
+
+<template name="teacher">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="sidePanel">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Selection Tools:</h3>
+                    </div>
+                    <div class="panel-body">
+                        {{hashtag}} {{#each items}} {{> NoteList}} {{else}} No Notes! {{/each}}
+                        <br>
+                        <br>
+                        <button type="button" class="btn btn-default save">Search</button>
+                    </div>
+                </div>
+                <br>
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Hashtags:</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="nav nav-pills">
+                            <li class="active"><a href="#">#confused <span class="badge">{{countConfused}}</span></a>
+                            </li>
+                            <br>
+                            <br>
+                            <br>
+                            <li class="active"><a href="#">#morepractice <span class="badge">{{countMorePractice}}</span></a>
+                            </li>
+                            <br>
+                            <br>
+                            <br>
+                            <li class="active"><a href="#">#lost <span class="badge">{{countLost}}</span></a>
+                            </li>
+
+
+                        </ul>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            {{#each items}} {{> NoteItem}} {{else}} No Notes! {{/each}}
+        </div>
+    </div>
+</template>
+
+<template name="NoteItem">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{user.username}}</h3>
+        </div>
+        <div class="panel-body">
+            <strong>Subject:</strong>
+            <span class="label label-primary">{{subject}}</span>
+
+            <strong>Topic:</strong>
+            <span class="label label-success">{{topic}}</span>
+
+            <strong>Title:</strong>
+            <span class="label label-warning">{{title}}</span>
+
+            <strong>Count:</strong>
+            <span class="label label-warning">{{count}}</span>
+
+            <br>
+            <br>
+
+            <pre>
+            	{{text}}
+            </pre>
+
+        </div>
+    </div>
+</template>
+
+<template name="NoteList">
+    <span class="label label-default">{{title}}</span>
+    <br>
+</template>
