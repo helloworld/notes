@@ -106,6 +106,16 @@ if (Meteor.isClient) {
             var subject = $("#subject").val();
             var topic = $("#topic").val();
 
+            if (title == "Enter Title...") {
+                return alert("Please fill out title form")
+            }
+            if (subject == "Enter Subject...") {
+                return alert("Please fill out subject form")
+            }
+            if (topic == "Enter Topic...") {
+                return alert("Please fill out topic form")
+            }
+
             Notes.insert({
                 created_at: new Date,
                 title: title,
