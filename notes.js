@@ -184,7 +184,6 @@ if (Meteor.isClient) {
                 score = score * 100;
                 console.log("score" + score);
 
-                Results.remove({})
 
                 Results.insert({
                     created_at: new Date,
@@ -193,6 +192,9 @@ if (Meteor.isClient) {
                     score: score,
                 });
             }
+
+            Router.go('/results');
+
 
         });
 
